@@ -1,1 +1,1 @@
-console.log('components');
+import './functions/buttonScript.js';
