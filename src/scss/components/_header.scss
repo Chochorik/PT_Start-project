@@ -1,0 +1,30 @@
+.header {
+  &__container {
+    @include grid;
+    @include grid-desktop;
+
+    padding: 20px 0;
+  }
+
+  &__logo {
+    grid-column: span 2;
+    width: 60px;
+    height: 60px;
+
+    @include svg-set('../img/svg/pc-security-svgrepo-com');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    grid-column: 10/13;
+  }
+
+  &__link {
+    font-size: 25px;
+    color: #fff;
+  }
+}

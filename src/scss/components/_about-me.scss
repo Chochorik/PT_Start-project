@@ -1,0 +1,41 @@
+.about-me {
+  &__container {
+    padding: 30px 0;
+    @include grid;
+    @include grid-desktop;
+
+    column-gap: 30px;
+    color: #f3f3f3;
+  }
+
+  &__descr {
+    grid-column: span 7;
+  }
+
+  &__title {
+    font-size: 50px;
+  }
+
+  &__blank {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  &__picture {
+    grid-column: span 5;
+  }
+
+  &__img {
+    margin-bottom: 7px;
+    width: 100%;
+    height: 100%;
+
+    @include image-set('../img/haker');
+    @include bg-cover;
+  }
+
+  &__caption {
+    margin: 0;
+    text-align: center;
+  }
+}
