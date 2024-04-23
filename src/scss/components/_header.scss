@@ -10,11 +10,11 @@
     grid-column: span 2;
     width: 60px;
     height: 60px;
-
-    @include svg-set('../img/svg/pc-security-svgrepo-com');
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+
+    @include svg-set('../img/svg/pc-security-svgrepo-com');
   }
 
   &__nav {
