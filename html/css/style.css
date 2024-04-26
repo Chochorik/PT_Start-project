@@ -1,0 +1,114 @@
+.authorization__container,
+.registration__container {
+    display: flex;
+    padding: 40px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.authorization__title,
+.registration__title {
+    color: #fff;
+}
+
+.authorization__span {
+    color: #fff;
+}
+
+.authorization__link {
+    color: #7174ff;
+}
+
+.registration__title {
+    font-size: 42px;
+    text-align: center;
+}
+
+.registration__form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration__block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration__form-label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.registration__form-label:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.registration__form-label:last-child {
+    margin-bottom: 30px;
+}
+
+.registration__form-input,
+.posts__input {
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+}
+
+.registration__btn,
+.posts__btn {
+    padding: 12px 30px;
+    border: none;
+    background-color: #ff2f2a;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.hero__title {
+    text-align: center;
+    color: #fff;
+}
+
+.posts__form {
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.posts__label {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.posts__input,
+.posts__textarea {
+    width: 100%;
+    padding: 12px 20px;
+}
+
+.posts__input {
+    margin-bottom: 15px;
+}
+
+.posts__textarea {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f3f3f3;
+}
+
+.post__container,
+.posts__file-input {
+    color: #fff;
+}
