@@ -1,7 +1,7 @@
 <?php
 
 $servername = "db";
-$username = "kali";
+$username = "root";
 $password = "kali";
 $dbName = "project";
 
@@ -42,4 +42,7 @@ $sql = "CREATE TABLE IF NOT EXISTS posts(
   main_text VARCHAR(400) NOT NULL
 )";
 
+if(!mysqli_query($link, $sql)) {
+    echo "Не удалось создать таблицу Posts";
+}
 

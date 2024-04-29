@@ -7,6 +7,10 @@ require_once './autoload.php';
 
 $post = new Post();
 
+$allowedTypes = ['image/gif', 'image/jpeg', 'image/jpg', 'image/pjpeg', 'image/x-png', 'image/png'];
+$errors = [];
+$maxFileSize = 102400;
+
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $text = $_POST['text'];
@@ -15,17 +19,32 @@ if (isset($_POST['submit'])) {
 
     if(!empty($_FILES["file"]))
     {
-        if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg")
-                || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/pjpeg")
-                || ($_FILES["file"]["type"] == "image/x-png") || ($_FILES["file"]["type"] == "image/png"))
-            && ($_FILES["file"]["size"] < 102400))
-        {
-            move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
-            echo "Загружено в:  " . "upload/" . $_FILES["file"]["name"];
+        if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
+            $errors[] = 'Произошла ошибка при загрузке файла.';
         }
-        else
-        {
-            echo "Загрузка не удалась!";
+
+        $realFileSize = filesize($_FILES['file']['tmp_name']);
+        if ($realFileSize > $maxFileSize) {
+            $errors[] = 'Файл слишком большой.';
+        }
+
+        $fileType = finfo_file(finfo_open(FILEINFO_MIME_TYPE), $_FILES['file']['tmp_name']);
+        if (!in_array($fileType, $allowedTypes)) {
+            $errors[] = 'Недопустимый тип файла.';
+        }
+
+        if (empty($errors)) {
+            $tempPath = $_FILES['file']['tmp_name'];
+            $destinationPath = 'upload/' . uniqid() . '_' . basename($_FILES['file']['name']);
+            if (move_uploaded_file($tempPath, $destinationPath)) {
+                echo "Файл загружен успешно: " . $destinationPath;
+            } else {
+                $errors[] = 'Не удалось переместить загруженный файл.';
+            }
+        } else {
+            foreach ($errors as $error) {
+                echo $error . '<br>';
+            }
         }
     }
 }

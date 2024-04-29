@@ -7,7 +7,7 @@ class User
     public function __construct()
     {
         try {
-            $this->connection = new PDO('mysql:hostname=db;dbname=project', 'root', 'kali');
+            $this->connection = new PDO('mysql:host=db;dbname=project', 'root', 'kali');
         } catch (PDOException $exception) {
             echo 'Не удалось подключиться к базе данных: ' . $exception->getMessage();
         }
